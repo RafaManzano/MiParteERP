@@ -79,7 +79,7 @@ function actualizarUnPedido(onResponse, onError, pedido) {
 
         function (response)             //Realiza una petición get a la URL, con la función dentro del "then" indico que hay que hacer en caso de respuesta satisfactoria
     {
-        onResponse("No falla")
+        onResponse(response)
     },
         function () {                                          //Aqui indica que hará en caso de error
             onError("Fallo")
@@ -95,7 +95,7 @@ function actualizarUnPedido(onResponse, onError, pedido) {
 
         function (response)             //Realiza una petición get a la URL, con la función dentro del "then" indico que hay que hacer en caso de respuesta satisfactoria
     {
-        onResponse("No falla")
+        onResponse(response)
     },
         function () {                                          //Aqui indica que hará en caso de error
             onError("Fallo")
@@ -111,7 +111,7 @@ function actualizarUnaLineaPedido(onResponse, onError, lineaPedido) {
 
         function (response)             //Realiza una petición get a la URL, con la función dentro del "then" indico que hay que hacer en caso de respuesta satisfactoria
     {
-        onResponse("No falla")
+        onResponse(response)
     },
         function () {                                          //Aqui indica que hará en caso de error
             onError("Fallo")
