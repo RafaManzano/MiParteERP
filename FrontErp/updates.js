@@ -2,7 +2,8 @@ window.onload = inicializa;
 const BASE_URL = 'https://apierp.azurewebsites.net/api/'
 //const BASE_URL = 'http://localhost:60883/api/'
 
-const API_PEDIDO = 'Pedidos/'
+const API_PEDIDO = 'pedido/';
+const API_LINEAPEDIDO = 'LineasPedido/';
 
 
 
@@ -104,7 +105,7 @@ function actualizarUnPedido(onResponse, onError, pedido) {
 }
 
 function actualizarUnaLineaPedido(onResponse, onError, lineaPedido) {
-    var url = BASE_URL + API_PEDIDO + pedido.id;
+    var url = BASE_URL + API_PEDIDO + '? codigoProducto=' + lineaPedido.codigoProducto + ' & codigoPedido=' + lineaPedido.codigoPedido;
 
     app.$http.put(url, lineaPedido).then(
 
