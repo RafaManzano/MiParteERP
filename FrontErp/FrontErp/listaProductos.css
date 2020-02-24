@@ -174,3 +174,11 @@ th {
 .rojo {
     color: red;
 }
+
+.dropdownSuperior {
+    margin:0 0 0 35px;
+}
+
+.icono {
+    font-size:18px;
+}
