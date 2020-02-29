@@ -19,6 +19,7 @@
                 <td>{{row.name}}</td>
                 <td>{{row.phone}}</td>
                 <td>{{row.profession}}</td>
+                <td>{{row.date}}</td>
                </tr>
             
            </tbody>
@@ -28,26 +29,48 @@
                 el: '#firstTable',
                 data: {
                     rows: [
-                        { id: 1, name: "Chandler Bing", phone: '305-917-1301', profession: 'IT Manager' },
-                        { id: 2, name: "Ross Geller", phone: '210-684-8953', profession: 'Paleontologist' },
-                        { id: 3, name: "Rachel Green", phone: '765-338-0312', profession: 'Waitress'},
-                        { id: 4, name: "Monica Geller", phone: '714-541-3336', profession: 'Head Chef' },
-                        { id: 5, name: "Joey Tribbiani", phone: '972-297-6037', profession: 'Actor' },
-                        { id: 6, name: "Phoebe Buffay", phone: '760-318-8376', profession: 'Masseuse' }
-                    ]
+                        { id: 1, name: "Chandler Bing", phone: '305-917-1301', profession: 'IT Manager', date : '2002-12-01' },
+                        { id: 2, name: "Ross Geller", phone: '210-684-8953', profession: 'Paleontologist', date : '2003-10-01' },
+                        { id: 3, name: "Rachel Green", phone: '765-338-0312', profession: 'Waitress', date : '2003-12-01'},
+                        { id: 4, name: "Monica Geller", phone: '714-541-3336', profession: 'Head Chef', date : '2018-12-01' },
+                        { id: 5, name: "Joey Tribbiani", phone: '972-297-6037', profession: 'Actor', date : '2003-12-05'},
+                        { id: 6, name: "Phoebe Buffay", phone: '760-318-8376', profession: 'Masseuse', date : ''}
+                    ],
+                    descendente: true
                 },
                 methods: {
                     "sortTable": function sortTable(col) {
-                        var res = 0
-                    this.rows.sort(function(a, b) {
-                        if (a[col] > b[col]) {
-                           res = 1;
-                        } 
-                        else if (a[col] < b[col]) {
-                            res = -1;
-                        }
+                        var res = 0;
+                        var hola = this.descendente = !this.descendente;
+                        //alert(hola);
+                        
+                        this.rows.sort(function(a, b) {
+                            //alert(hola);
+                            if(hola) {
+                                if (a[col] > b[col]) {
+                                    //alert(a[col] + ">" + b[col]);
+                                    res =  1;
+                                } 
+                                else if (a[col] < b[col]) {
+                                    //alert(a[col] + "<" + b[col]);
+                                    res = -1;
+                                }
+                            }
+                            else {
+                                if (b[col] > a[col]) {
+                                    //alert(b[col] + ">" + a[col]);
+                                    res =  1;
+                                } 
+                                else if (b[col] < a[col]) {
+                                    //alert(b[col] + "<" + a[col]);
+                                    res = -1;
+                                }
+                            }
+                            
+                            //alert(res);
                         return res;
                         })
+                        //alert(JSON.stringify(this.rows));
                     }
                 },
                 computed: {
